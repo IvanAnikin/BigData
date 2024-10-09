@@ -1,6 +1,7 @@
 import random
 import time
 import psutil
+import os
 
 matrix_sizes = [16, 128, 1024]
 
