@@ -1,7 +1,6 @@
 import random
 import time
 import psutil
-import oscxosdew
 
 matrix_sizes = [16, 128, 1024]
 
