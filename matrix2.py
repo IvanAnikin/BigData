@@ -1,33 +1,31 @@
 import random
 import time
 import psutil
-import os
+import oscxosdew
 
-n = 1024
+matrix_sizes = [16, 128, 1024]
 
-A = [[random.random() for _ in range(n)] for _ in range(n)]
-B = [[random.random() for _ in range(n)] for _ in range(n)]
-C = [[0 for _ in range(n)] for _ in range(n)]
+for n in matrix_sizes:
+    print(f"\nMatrix size: {n}x{n}")
 
-# Start measuring execution time
-start = time.time()
+    A = [[random.random() for _ in range(n)] for _ in range(n)]
+    B = [[random.random() for _ in range(n)] for _ in range(n)]
+    C = [[0 for _ in range(n)] for _ in range(n)]
 
-# Matrix multiplication
-for i in range(n):
-    for j in range(n):
-        for k in range(n):
-            C[i][j] += A[i][k] * B[k][j]
+    start = time.time()
 
-# End measuring execution time
-end = time.time()
-print("Execution Time: %.6f seconds" % (end - start))
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                C[i][j] += A[i][k] * B[k][j]
 
-# Get memory usage
-process = psutil.Process(os.getpid())
-memory_usage = process.memory_info().rss / (1024 * 1024)  # Convert to MB
-print(f"Memory Usage: {memory_usage:.2f} MB")
+    end = time.time()
+    print("Execution Time: %.6f seconds" % (end - start))
 
-# Optional: Get CPU time
-cpu_times = process.cpu_times()
-print(f"User CPU Time: {cpu_times.user:.6f} seconds")
-print(f"System CPU Time: {cpu_times.system:.6f} seconds")
+    process = psutil.Process(os.getpid())
+    memory_usage = process.memory_info().rss / (1024 * 1024)  # Convert to MB
+    print(f"Memory Usage: {memory_usage:.2f} MB")
+
+    cpu_times = process.cpu_times()
+    print(f"User CPU Time: {cpu_times.user:.6f} seconds")
+    print(f"System CPU Time: {cpu_times.system:.6f} seconds")
