@@ -4,7 +4,6 @@ import java.lang.management.ThreadMXBean;
 
 public class Matrix3 {
 
-    // Strassen algorithm for matrix multiplication
     public static double[][] strassen(double[][] A, double[][] B, int n) {
         if (n == 1) {
             double[][] result = {{A[0][0] * B[0][0]}};
@@ -112,7 +111,6 @@ public class Matrix3 {
 
             long start = System.currentTimeMillis();
 
-            // Using Strassen's algorithm for matrix multiplication
             double[][] c = strassen(a, b, n);
 
             long stop = System.currentTimeMillis();
