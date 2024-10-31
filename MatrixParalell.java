@@ -3,7 +3,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 import java.lang.management.ManagementFactory;
 
-public class Matrix3 {
+public class MatrixParalell {
 
     private static final ForkJoinPool pool = new ForkJoinPool();
 
