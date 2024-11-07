@@ -2,7 +2,7 @@ import java.util.Random;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadMXBean;
 
-public class Matrix3 {
+public class Matrix_Strassen {
 
     public static double[][] strassen(double[][] A, double[][] B, int n) {
         if (n == 1) {
